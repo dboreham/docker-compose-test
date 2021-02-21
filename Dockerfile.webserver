@@ -1,0 +1,8 @@
+FROM nginx:mainline
+
+RUN set -ex; \
+  apt-get update; \
+  apt-get -y install net-tools iproute2 netcat dnsutils curl iputils-ping iptables nmap tcpdump
+
+RUN rm /etc/nginx/conf.d/*
+ADD hello-plain-text.conf /etc/nginx/conf.d/
