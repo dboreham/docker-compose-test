@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+  linux:
+    build:
+      dockerfile: Dockerfile.three
+      context: .
+    command: "/script.sh"
+    environment:
+      ENV_VAR_FOO: defined-in-dockerfile
+    env_file:
+      - ./env-vars
